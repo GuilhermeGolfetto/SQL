@@ -1,0 +1,36 @@
+/*inserindo registros via SQL*/
+INSERT INTO funcionarios(id,nome,salario,departamento) 
+VALUES(1,'Guilherme',1400,'T.I.');
+
+INSERT INTO funcionarios(id,nome,salario,departamento) 
+VALUES(NULL,'Fernando',2500, 'Juridico');
+/*Como eu usei NULL no ID, o proprio SQL vai completar com o AUTO_INCREMENT*/
+
+/*alterando registros via SQL*/	
+UPDATE funcionarios SET salario = 1800 WHERE id =1;
+/*Sempre bom usar a chave primaria para alterar especificamente o registro*/
+
+/*exlcluindo registros via SQL*/
+DELETE FROM funcionarios WHERE id=4;
+
+/*consultando banco via SQL*/
+SELECT nome FROM funcionarios WHERE salario<2000;
+
+/*Usando Apelidos*/
+SELECT * FROM funcionarios f WHERE f.salario>2000;
+/*note que no WHERE a tabela funcionarios tem o apelido f*/
+
+SELECT nome AS funcionario,salario FROM funcionarios;
+/*O parametro AS apelidou o nome do campo 'nome' para 'funcionario'(mas não mudou.)*/
+
+/*Usando o Union*/
+SELECT * FROM funcionarios WHERE nome= 'Guilherme' 
+UNION 
+SELECT * FROM funcionarios WHERE nome = 'Isabella';
+/*Usado para fazer concatenação de informações- não pega valores duplicados*/
+
+/*Usando o Union All*/
+SELECT * FROM funcionarios WHERE nome= 'Isabella' 
+UNION ALL
+SELECT * FROM funcionarios WHERE nome = 'Isabella';
+/*Usado para pegar dados duplicados....usado para relacionamentos*/
