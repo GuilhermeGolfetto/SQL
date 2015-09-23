@@ -1,0 +1,11 @@
+CREATE USER 'guilherme'@'%' IDENTIFIED BY 'golfetto';
+/*Criou o usario guilherme que pode acessar o banco de qualquer IP(%) com a senha golfetto*/
+GRANT All ON curso_sql.* TO 'guilherme'@'%';
+/*  .* garante acesso a todas as tabelas da estrutura curso_sql,
+Se quiser ter acesso só a tabela funcionario: tira o * e colocar o nome da tabela*/
+REVOKE ALL ON curso_sql.* FROM 'guilherme'@'%';
+/*Remover acessos */
+REVOKE INSERT ON curso_sql.* FROM 'guilherme'@'%';
+/*remover a inserção de tabela do usuario*/
+DROP USER 'guilherme'@'%';
+/*Excluido*/
