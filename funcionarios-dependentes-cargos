@@ -1,0 +1,51 @@
+CREATE TABLE funcionarios(
+  matricula numeric primary key,
+  nome varchar(30) not null,
+  nacionalidade varchar(20) not null,
+  sexo varchar(20),
+  estado_civil varchar(30),
+  rg varchar(30),
+  cpf varchar(30),
+  endereco varchar(100),
+  telefone varchar(20),
+  data_adm date
+);
+
+insert into funcionarios(matricula,nome,sexo, nacionalidade, estado_civil,rg, cpf,endereco,telefone) values
+(3,'Thales','masculino','brasileiro','solteiro','2.222.222.22','333.333.333-3','rua teste21,15','555-6666');
+
+insert into dependentes(id,nome,data_nasc) values
+(1,'Felipe',
+  
+create table dependentes(
+  id numeric primary key,
+  nome varchar(30),
+  data_nasc date
+);
+  
+create table cargos_ocupado(
+  id numeric primary key,
+  cargo varchar(30),
+  data_inicio date,
+  data_fim date
+);
+  
+create table depen_func(
+  id numeric primary key, 
+  dependentes_id numeric,
+  funcionarios_matricula numeric,
+  foreign key (funcionarios_matricula) references funcionarios,
+  foreign key (dependentes_id) references dependentes
+);
+
+create table func_cargo(
+  id numeric primary key,
+  funcionarios_matricula numeric,
+  id_cargos_ocupados numeric,
+  foreign key(funcionarios_matricula) references funcionarios,
+  foreign key (id_cargos_ocupados) references cargos_ocupado
+);
+  
+
+
+  
